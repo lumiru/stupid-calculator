@@ -1,0 +1,52 @@
+﻿<Window x:Class="Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator"
+        mc:Ignorable="d"
+        Title="Calculator" Height="350" Width="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="TXT_CALCUL" Grid.RowSpan="2" Grid.ColumnSpan="4" Text="0" HorizontalContentAlignment="Right" FontSize="32" Style="{StaticResource MetroTextBox}" />
+
+        <Button x:Name="BT_CE" Grid.Row="2" Grid.Column="0" Content="CE" />
+        <Button x:Name="BT_C" Grid.Row="2" Grid.Column="1" Content="C" />
+        <Button x:Name="BT_DIVISION" Grid.Row="2" Grid.Column="3" Content="/" />
+
+        <Button x:Name="BT_SEVEN" Grid.Row="3" Grid.Column="0" Content="7" />
+        <Button x:Name="BT_EIGHT" Grid.Row="3" Grid.Column="1" Content="8" />
+        <Button x:Name="BT_NINE" Grid.Row="3" Grid.Column="2" Content="9" />
+        <Button x:Name="BT_MULTIPLICATION" Grid.Row="3" Grid.Column="3" Content="X" />
+
+        <Button x:Name="BT_FOUR" Grid.Row="4" Grid.Column="0" Content="4" />
+        <Button x:Name="BT_FIVE" Grid.Row="4" Grid.Column="1" Content="5" />
+        <Button x:Name="BT_SIX" Grid.Row="4" Grid.Column="2" Content="6" />
+        <Button x:Name="BT_SOUSTRACTION" Grid.Row="4" Grid.Column="3" Content="-" />
+
+        <Button x:Name="BT_ONE" Grid.Row="5" Grid.Column="0" Content="1" />
+        <Button x:Name="BT_TWO" Grid.Row="5" Grid.Column="1" Content="2" />
+        <Button x:Name="BT_THREE" Grid.Row="5" Grid.Column="2" Content="3" />
+        <Button x:Name="BT_ADDITION" Grid.Row="5" Grid.Column="3" Content="+" />
+
+        <Button x:Name="BT_ZERO" Grid.Row="6" Grid.Column="1" Content="0" />
+        <Button x:Name="BT_DECIMAL" Grid.Row="6" Grid.Column="2" Content="," />
+        <Button x:Name="BT_EQUAL" Grid.Row="6" Grid.Column="3" Content="=" />
+    </Grid>
+</Window>
