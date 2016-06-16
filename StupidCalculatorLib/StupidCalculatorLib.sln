@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StupidCalculatorLib", "StupidCalculatorLib\StupidCalculatorLib.csproj", "{87FEC74E-DA9D-45E1-BC6F-D463DE01F2C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLib", "TestLib\TestLib.csproj", "{B9AA2F1E-3892-4ED5-A5C4-331CA8A10B6B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{79A7E467-8670-4D54-AE7C-9088401E6840}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		StupidCalculatorLib.vsmdi = StupidCalculatorLib.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = StupidCalculatorLib.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{87FEC74E-DA9D-45E1-BC6F-D463DE01F2C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87FEC74E-DA9D-45E1-BC6F-D463DE01F2C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87FEC74E-DA9D-45E1-BC6F-D463DE01F2C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87FEC74E-DA9D-45E1-BC6F-D463DE01F2C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9AA2F1E-3892-4ED5-A5C4-331CA8A10B6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9AA2F1E-3892-4ED5-A5C4-331CA8A10B6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9AA2F1E-3892-4ED5-A5C4-331CA8A10B6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9AA2F1E-3892-4ED5-A5C4-331CA8A10B6B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

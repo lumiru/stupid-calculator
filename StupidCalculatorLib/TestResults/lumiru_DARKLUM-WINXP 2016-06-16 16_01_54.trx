@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="2d2767bb-1216-41f1-b440-cee150c33ca3" name="lumiru@DARKLUM-WINXP 2016-06-16 16:01:54" runUser="DARKLUM-WINXP\lumiru" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="b1c9dcbe-ca7c-4f12-a411-35e124fe68c4">
+    <Description>Il s'agit des paramètres de test par défaut pour une série de tests locale.</Description>
+    <Deployment enabled="false" runDeploymentRoot="lumiru_DARKLUM-WINXP 2016-06-16 16_01_54">
+      <DeploymentItem filename="c:\documents and settings\lumiru\mes documents\visual studio 2010\Projects\StupidCalculatorLib\StupidCalculatorLib\bin\Debug\StupidCalculatorLib.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2016-06-16T16:01:54.0994368+02:00" queuing="2016-06-16T16:01:55.3912944+02:00" start="2016-06-16T16:01:55.6216256+02:00" finish="2016-06-16T16:01:56.2325040+02:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestAddition" storage="c:\documents and settings\lumiru\mes documents\visual studio 2010\projects\stupidcalculatorlib\testlib\bin\debug\testlib.dll" id="798ddc9d-ec2d-3e03-a88d-d848e762ad9c">
+      <Execution id="b64c7dc4-4dc6-4ac3-851a-92bc1640dcf9" />
+      <TestMethod codeBase="c:/documents and settings/lumiru/mes documents/visual studio 2010/Projects/StupidCalculatorLib/TestLib/bin/Debug/TestLib.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestLib.UnitTest1, TestLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestAddition" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Les résultats ne figurent pas dans une liste" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Tous les résultats chargés" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="798ddc9d-ec2d-3e03-a88d-d848e762ad9c" executionId="b64c7dc4-4dc6-4ac3-851a-92bc1640dcf9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="b64c7dc4-4dc6-4ac3-851a-92bc1640dcf9" testId="798ddc9d-ec2d-3e03-a88d-d848e762ad9c" testName="TestAddition" computerName="DARKLUM-WINXP" duration="00:00:00.0179897" startTime="2016-06-16T16:01:55.6917264+02:00" endTime="2016-06-16T16:01:56.1023168+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b64c7dc4-4dc6-4ac3-851a-92bc1640dcf9">
+    </UnitTestResult>
+  </Results>
+</TestRun>
