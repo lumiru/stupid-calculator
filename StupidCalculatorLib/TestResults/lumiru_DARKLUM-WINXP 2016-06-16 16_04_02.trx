@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="082ced28-1892-44dd-b9ea-b745aa6f7aca" name="lumiru@DARKLUM-WINXP 2016-06-16 16:04:02" runUser="DARKLUM-WINXP\lumiru" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="b1c9dcbe-ca7c-4f12-a411-35e124fe68c4">
+    <Description>Il s'agit des paramètres de test par défaut pour une série de tests locale.</Description>
+    <Deployment enabled="false" runDeploymentRoot="lumiru_DARKLUM-WINXP 2016-06-16 16_04_02">
+      <DeploymentItem filename="c:\documents and settings\lumiru\mes documents\visual studio 2010\Projects\StupidCalculatorLib\StupidCalculatorLib\bin\Debug\StupidCalculatorLib.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2016-06-16T16:04:02.8545776+02:00" queuing="2016-06-16T16:04:02.8846208+02:00" start="2016-06-16T16:04:03.0047936+02:00" finish="2016-06-16T16:04:03.6957872+02:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestMultiply" storage="c:\documents and settings\lumiru\mes documents\visual studio 2010\projects\stupidcalculatorlib\testlib\bin\debug\testlib.dll" id="b38e112f-b7fe-1ce4-f28e-125a257d6c4d">
+      <Execution id="55c03691-43c3-491a-8b72-abc7b1fa07ce" />
+      <TestMethod codeBase="c:/documents and settings/lumiru/mes documents/visual studio 2010/Projects/StupidCalculatorLib/TestLib/bin/Debug/TestLib.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestLib.UnitTest1, TestLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMultiply" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Les résultats ne figurent pas dans une liste" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Tous les résultats chargés" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="b38e112f-b7fe-1ce4-f28e-125a257d6c4d" executionId="55c03691-43c3-491a-8b72-abc7b1fa07ce" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="55c03691-43c3-491a-8b72-abc7b1fa07ce" testId="b38e112f-b7fe-1ce4-f28e-125a257d6c4d" testName="TestMultiply" computerName="DARKLUM-WINXP" duration="00:00:00.1144975" startTime="2016-06-16T16:04:03.1850528+02:00" endTime="2016-06-16T16:04:03.4954992+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="55c03691-43c3-491a-8b72-abc7b1fa07ce">
+      <Output>
+        <ErrorInfo>
+          <Message>Échec de Assert.AreEqual. Attendu : &lt;2020&gt;, Réel : &lt;8080&gt;. </Message>
+          <StackTrace>   à TestLib.UnitTest1.TestMultiply() dans c:\documents and settings\lumiru\mes documents\visual studio 2010\Projects\StupidCalculatorLib\TestLib\UnitTest1.cs:ligne 86
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

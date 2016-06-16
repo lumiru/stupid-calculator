@@ -1,0 +1,7 @@
+c:\documents and settings\lumiru\mes documents\visual studio 2010\Projects\StupidCalculatorLib\TestLib\bin\Debug\TestLib.dll
+c:\documents and settings\lumiru\mes documents\visual studio 2010\Projects\StupidCalculatorLib\TestLib\bin\Debug\TestLib.pdb
+c:\documents and settings\lumiru\mes documents\visual studio 2010\Projects\StupidCalculatorLib\TestLib\bin\Debug\StupidCalculatorLib.dll
+c:\documents and settings\lumiru\mes documents\visual studio 2010\Projects\StupidCalculatorLib\TestLib\bin\Debug\StupidCalculatorLib.pdb
+c:\documents and settings\lumiru\mes documents\visual studio 2010\Projects\StupidCalculatorLib\TestLib\obj\Debug\ResolveAssemblyReference.cache
+c:\documents and settings\lumiru\mes documents\visual studio 2010\Projects\StupidCalculatorLib\TestLib\obj\Debug\TestLib.dll
+c:\documents and settings\lumiru\mes documents\visual studio 2010\Projects\StupidCalculatorLib\TestLib\obj\Debug\TestLib.pdb
