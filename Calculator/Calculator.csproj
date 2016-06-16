@@ -104,6 +104,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StupidCalculatorLib\StupidCalculatorLib\StupidCalculatorLib.csproj">
+      <Project>{87fec74e-da9d-45e1-bc6f-d463de01f2c7}</Project>
+      <Name>StupidCalculatorLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
