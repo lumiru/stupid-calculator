@@ -45,12 +45,14 @@ namespace StupidCalculatorLib
                 computed = applyOperation(_numberHistory[historyLength - 2], _numberHistory[historyLength - 1]);
                 _numberHistory.Add(computed);
             }
-            else
+            else if(historyLength > 0)
             {
                 computed = _numberHistory[0];
             }
-
-            _operation = Operation.NONE;
+            else
+            {
+                computed = 0;
+            }
 
             return computed;
         }
