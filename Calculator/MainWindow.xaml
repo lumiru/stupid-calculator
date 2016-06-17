@@ -35,7 +35,7 @@
                 </Rectangle.OpacityMask>
             </Rectangle>
         </Button>
-        <Button Grid.Row="2" Grid.Column="3" Content="÷" Tag="+" Click="BT_Click" />
+        <Button Grid.Row="2" Grid.Column="3" Content="÷" Tag="÷" Click="BT_Click" />
 
         <Button Grid.Row="3" Grid.Column="0" Content="7" Tag="7" Click="BT_Click" />
         <Button Grid.Row="3" Grid.Column="1" Content="8" Tag="8" Click="BT_Click" />
