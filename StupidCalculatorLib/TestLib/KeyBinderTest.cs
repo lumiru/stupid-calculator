@@ -141,5 +141,41 @@ namespace TestLib
             Assert.AreEqual("6", binder.pushButton('='));
             Assert.AreEqual("9", binder.pushButton('='));
         }
+
+        [TestMethod()]
+        public void clearTest()
+        {
+            KeyBinder binder = new KeyBinder();
+            binder.pushButton('3');
+            binder.pushButton('+');
+            Assert.AreEqual("3 + 3", binder.pushButton('3'));
+            Assert.AreEqual("", binder.pushButton('C'));
+            binder.pushButton('3');
+            binder.pushButton('+');
+            Assert.AreEqual("3 + 3", binder.pushButton('3'));
+            Assert.AreEqual("6", binder.pushButton('='));
+            Assert.AreEqual("", binder.pushButton('C'));
+            binder.pushButton('3');
+            binder.pushButton('+');
+            Assert.AreEqual("3 + 3", binder.pushButton('3'));
+            Assert.AreEqual("6", binder.pushButton('='));
+        }
+
+        [TestMethod()]
+        public void popTest()
+        {
+            KeyBinder binder = new KeyBinder();
+            binder.pushButton('3');
+            binder.pushButton('+');
+            Assert.AreEqual("3 + 3", binder.pushButton('3'));
+            Assert.AreEqual("3 + ", binder.pushButton('E'));
+            Assert.AreEqual("3 + 3", binder.pushButton('3'));
+            Assert.AreEqual("6", binder.pushButton('='));
+            Assert.AreEqual("", binder.pushButton('E'));
+            binder.pushButton('3');
+            binder.pushButton('+');
+            Assert.AreEqual("3 + 3", binder.pushButton('3'));
+            Assert.AreEqual("6", binder.pushButton('='));
+        }
     }
 }

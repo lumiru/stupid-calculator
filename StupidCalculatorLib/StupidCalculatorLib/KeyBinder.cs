@@ -63,6 +63,12 @@ namespace StupidCalculatorLib
                     case '=':
                         compute();
                         break;
+                    case 'C':
+                        clear();
+                        break;
+                    case 'E':
+                        popChar();
+                        break;
                 }
 
                 if (op != Operation.NONE)
@@ -121,6 +127,22 @@ namespace StupidCalculatorLib
             }
             _text = _op.compute().ToString();
             _isResult = true;
+        }
+
+        private void clear()
+        {
+            _op.operation = Operation.NONE;
+            _text = "";
+            _buffer = "";
+        }
+
+        private void popChar()
+        {
+            if (_buffer.Length > 0)
+            {
+                _text = _text.Substring(0, _text.Length - 1);
+                _buffer = _buffer.Substring(0, _buffer.Length - 1);
+            }
         }
 
         public static char op2char(Operation op)

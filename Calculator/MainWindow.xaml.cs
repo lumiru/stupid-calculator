@@ -46,6 +46,10 @@ namespace Calculator
             {
                 TXT_CALCUL.Text = _binder.pushButton(str[0]);
             }
+            else if (str == "CE")
+            {
+                TXT_CALCUL.Text = _binder.pushButton('E');
+            }
         }
 
         private bool IsAllowedChar(Key key)
