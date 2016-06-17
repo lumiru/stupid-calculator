@@ -63,7 +63,7 @@ namespace Calculator
                     TXT_CALCUL.Text = _binder.pushButton('E');
                 }
             }
-            else if(str == "=")
+            else if(str == "=" || str == "C" || str == "E")
             {
                 TXT_CALCUL.Text = _binder.pushButton(str[0]);
             }
