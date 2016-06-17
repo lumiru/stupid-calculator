@@ -8,6 +8,7 @@ namespace StupidCalculatorLib
     public class KeyBinder
     {
         private bool _isResult;
+        private bool _hasSign;
 
         public bool isResult
         {
@@ -31,6 +32,7 @@ namespace StupidCalculatorLib
             _op = new Operator();
             _buffer = "";
             _isResult = false;
+            _hasSign = false;
         }
 
         public string pushButton(char c)
@@ -82,6 +84,18 @@ namespace StupidCalculatorLib
 
         private void putOperation(Operation op)
         {
+            if (_hasSign && _text.Length > 2)
+            {
+                if (_text[_text.Length - 1] == ' ')
+                {
+                    _text = _text.Substring(0, _text.Length - 3);
+                }
+                else
+                {
+                    compute();
+                }
+            }
+
             _op.operation = op;
             if (_buffer.Length > 0)
             {
@@ -89,10 +103,12 @@ namespace StupidCalculatorLib
                 {
                     _op.addNumber(double.Parse(_buffer));
                 }
+
                 _buffer = "";
             }
             _text += " " + op2char(op) + " ";
 
+            _hasSign = true;
             _isResult = false;
         }
 
@@ -127,6 +143,7 @@ namespace StupidCalculatorLib
             }
             _text = _op.compute().ToString();
             _isResult = true;
+            _hasSign = false;
         }
 
         private void clear()

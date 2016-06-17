@@ -57,7 +57,7 @@ namespace Calculator
             {
                 TXT_CALCUL.Text = _binder.pushButton(str[0]);
             }
-            else if (str == "CE")
+            else if (str == "CE" || str == "EFF")
             {
                 TXT_CALCUL.Text = _binder.pushButton('E');
             }

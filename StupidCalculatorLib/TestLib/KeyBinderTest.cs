@@ -118,7 +118,7 @@ namespace TestLib
             binder.pushButton('1');
             binder.pushButton('+');
             binder.pushButton('x');
-            binder.pushButton('2');
+            Assert.AreEqual("1 × 2", binder.pushButton('2'));
             Assert.AreEqual("2", binder.pushButton('='));
         }
 
@@ -140,6 +140,11 @@ namespace TestLib
             binder.pushButton('3');
             Assert.AreEqual("6", binder.pushButton('='));
             Assert.AreEqual("9", binder.pushButton('='));
+            binder.pushButton('+');
+            Assert.AreEqual("9 + 1", binder.pushButton('1'));
+            Assert.AreEqual("10 + ", binder.pushButton('+'));
+            Assert.AreEqual("10 + 4", binder.pushButton('4'));
+            Assert.AreEqual("14", binder.pushButton('='));
         }
 
         [TestMethod()]
@@ -168,6 +173,7 @@ namespace TestLib
             binder.pushButton('3');
             binder.pushButton('+');
             Assert.AreEqual("3 + 3", binder.pushButton('3'));
+            Assert.AreEqual("3 + ", binder.pushButton('E'));
             Assert.AreEqual("3 + ", binder.pushButton('E'));
             Assert.AreEqual("3 + 3", binder.pushButton('3'));
             Assert.AreEqual("6", binder.pushButton('='));

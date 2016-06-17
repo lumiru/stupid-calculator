@@ -3,8 +3,3 @@ c:\documents and settings\lumiru\mes documents\visual studio 2010\Projects\Stupi
 c:\documents and settings\lumiru\mes documents\visual studio 2010\Projects\StupidCalculatorLib\StupidCalculatorLib\obj\Debug\ResolveAssemblyReference.cache
 c:\documents and settings\lumiru\mes documents\visual studio 2010\Projects\StupidCalculatorLib\StupidCalculatorLib\obj\Debug\StupidCalculatorLib.dll
 c:\documents and settings\lumiru\mes documents\visual studio 2010\Projects\StupidCalculatorLib\StupidCalculatorLib\obj\Debug\StupidCalculatorLib.pdb
-C:\Users\Kevin\Documents\stupid-calculator\StupidCalculatorLib\StupidCalculatorLib\bin\Debug\StupidCalculatorLib.dll
-C:\Users\Kevin\Documents\stupid-calculator\StupidCalculatorLib\StupidCalculatorLib\bin\Debug\StupidCalculatorLib.pdb
-C:\Users\Kevin\Documents\stupid-calculator\StupidCalculatorLib\StupidCalculatorLib\obj\Debug\StupidCalculatorLib.csprojResolveAssemblyReference.cache
-C:\Users\Kevin\Documents\stupid-calculator\StupidCalculatorLib\StupidCalculatorLib\obj\Debug\StupidCalculatorLib.dll
-C:\Users\Kevin\Documents\stupid-calculator\StupidCalculatorLib\StupidCalculatorLib\obj\Debug\StupidCalculatorLib.pdb
