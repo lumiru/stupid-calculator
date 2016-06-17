@@ -12,7 +12,6 @@ namespace Calculator
     {
         public static bool Erase;
         public static Operator Operator;
-        public static Operation lastOperation;
 
         public MainWindow()
         {
@@ -50,6 +49,28 @@ namespace Calculator
                 Operator = new Operator();
             }
 
+            // if erase = true, save current value and clear textbox
+            if (Erase)
+            {
+                switch (str)
+                {
+                    case "+":
+                    case "-":
+                    case "/":
+                    case "X":
+                    case "=":
+                        if (!char.IsNumber(TXT_CALCUL.Text[TXT_CALCUL.Text.Length - 1]))
+                        {
+                            TXT_CALCUL.Text = TXT_CALCUL.Text.Substring(0, TXT_CALCUL.Text.Length - 1);
+                        }
+                        break;
+                    default:
+                        TXT_CALCUL.Text = "";
+                        Erase = false;
+                        break;
+                }
+            }
+
             switch (str)
             {
                 case "CE":
@@ -69,22 +90,10 @@ namespace Calculator
                 case "7":
                 case "8":
                 case "9":
-                    // if erase = true, save current value and clear textbox
-                    if (Erase)
-                    {
-                        TXT_CALCUL.Text = "";
-                        Erase = false;
-                    }
                     // add number to textbox
                     TXT_CALCUL.Text += str;
                     break;
                 case ",":
-                    // if erase = true, save current value and clear textbox
-                    if (Erase)
-                    {
-                        TXT_CALCUL.Text = "";
-                        Erase = false;
-                    }
                     // if textbox not already contains decimal, and minimum one number exist
                     if (TXT_CALCUL.Text == "")
                     {
@@ -97,33 +106,48 @@ namespace Calculator
                     break;
 
                 case "X":
-                    Operator.operation = Operation.MULTIPLY;
-                    Operator.addNumber(double.Parse(TXT_CALCUL.Text));
-                    TXT_CALCUL.Text += str;
-                    Erase = true;
+                    if (Operator != null && TXT_CALCUL.Text != "")
+                    {
+                        Operator.operation = Operation.MULTIPLY;
+                        Operator.addNumber(double.Parse(TXT_CALCUL.Text));
+                        TXT_CALCUL.Text += str;
+                        Erase = true;
+                    }
                     break;
                 case "-":
-                    Operator.operation = Operation.SUBSTRACT;
-                    Operator.addNumber(double.Parse(TXT_CALCUL.Text));
-                    TXT_CALCUL.Text += str;
-                    Erase = true;
+                    if (Operator != null && TXT_CALCUL.Text != "")
+                    {
+                        Operator.operation = Operation.SUBSTRACT;
+                        Operator.addNumber(double.Parse(TXT_CALCUL.Text));
+                        TXT_CALCUL.Text += str;
+                        Erase = true;
+                    }
                     break;
                 case "+":
-                    Operator.operation = Operation.ADD;
-                    Operator.addNumber(double.Parse(TXT_CALCUL.Text));
-                    TXT_CALCUL.Text += str;
-                    Erase = true;
+                    if (Operator != null && TXT_CALCUL.Text != "")
+                    {
+                        Operator.operation = Operation.ADD;
+                        Operator.addNumber(double.Parse(TXT_CALCUL.Text));
+                        TXT_CALCUL.Text += str;
+                        Erase = true;
+                    }
                     break;
                 case "/":
-                    Operator.operation = Operation.DIVIDE;
-                    Operator.addNumber(double.Parse(TXT_CALCUL.Text));
-                    TXT_CALCUL.Text += str;
-                    Erase = true;
+                    if (Operator != null && TXT_CALCUL.Text != "")
+                    {
+                        Operator.operation = Operation.DIVIDE;
+                        Operator.addNumber(double.Parse(TXT_CALCUL.Text));
+                        TXT_CALCUL.Text += str;
+                        Erase = true;
+                    }
                     break;
                 case "=":
-                    Operator.addNumber(double.Parse(TXT_CALCUL.Text));
-                    TXT_CALCUL.Text = Operator.compute().ToString();
-                    Erase = true;
+                    if (Operator != null && TXT_CALCUL.Text != "")
+                    {
+                        Operator.addNumber(double.Parse(TXT_CALCUL.Text));
+                        TXT_CALCUL.Text = Operator.compute().ToString();
+                        Erase = true;
+                    }
                     break;
 
                 default:
