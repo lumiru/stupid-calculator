@@ -2,6 +2,7 @@
 using System.Windows.Controls;
 using StupidCalculatorLib;
 using System.Windows.Input;
+using System.Runtime.InteropServices;
 
 namespace Calculator
 {
@@ -15,8 +16,9 @@ namespace Calculator
         public MainWindow()
         {
             InitializeComponent();
+            this.PreviewKeyDown += TXT_CALCUL_PreviewKeyDown;
         }
-
+        
         /// <summary>
         /// Button click events
         /// </summary>
@@ -32,11 +34,19 @@ namespace Calculator
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void TXT_CALCUL_KeyDown(object sender, KeyEventArgs e)
+        private void TXT_CALCUL_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (IsAllowedChar(e.Key))
+            string temp = GetKeyChar(e.Key);
+            
+            e.Handled = true;
+            if (TXT_CALCUL.Text.Length > 0)
             {
-                //Run();
+                TXT_CALCUL.Select(TXT_CALCUL.Text.Length - 1, 1);
+            }
+
+            if (temp != null)
+            {
+                Run(temp);
             }
         }
 
@@ -48,14 +58,38 @@ namespace Calculator
             }
         }
 
-        private bool IsAllowedChar(Key key)
+        private string GetKeyChar(Key key)
         {
-            if (key.ToString().Contains("NumPad"))
+            switch (key)
             {
-                return true;
+                case Key.NumPad0:
+                case Key.NumPad1:
+                case Key.NumPad2:
+                case Key.NumPad3:
+                case Key.NumPad4:
+                case Key.NumPad5:
+                case Key.NumPad6:
+                case Key.NumPad7:
+                case Key.NumPad8:
+                case Key.NumPad9:
+                    return key.ToString().Substring(6);
+                case Key.Multiply:
+                    return "X";
+                case Key.Add:
+                    return "+";
+                case Key.Subtract:
+                    return "-";
+                case Key.Decimal:
+                    return ",";
+                case Key.Divide:
+                    return "/";
+                case Key.Enter:
+                    return "=";
+                case Key.Delete:
+                    return "C";
+                default:
+                    return null;
             }
-
-            return false;
         }
     }
 }
