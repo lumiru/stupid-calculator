@@ -85,7 +85,7 @@ namespace Calculator
                 case Key.NumPad9:
                     return key.ToString().Substring(6);
                 case Key.Multiply:
-                    return "X";
+                    return "×";
                 case Key.Add:
                     return "+";
                 case Key.Subtract:

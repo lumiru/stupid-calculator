@@ -28,13 +28,19 @@
 
         <Button Grid.Row="2" Grid.Column="0" Content="CE" Click="BT_Click" />
         <Button Grid.Row="2" Grid.Column="1" Content="C" Click="BT_Click" />
-        <Button Grid.Row="2" Grid.Column="2" Content="EFF" Click="BT_Click" />
+        <Button Grid.Row="2" Grid.Column="2" Click="BT_Click">
+            <Rectangle Fill="Black" Width="30" Height="20">
+                <Rectangle.OpacityMask>
+                    <VisualBrush Visual="{StaticResource appbar_clear_reflect_horizontal}" Stretch="Fill" />
+                </Rectangle.OpacityMask>
+            </Rectangle>
+        </Button>
         <Button Grid.Row="2" Grid.Column="3" Content="÷" Click="BT_Click" />
 
         <Button Grid.Row="3" Grid.Column="0" Content="7" Click="BT_Click" />
         <Button Grid.Row="3" Grid.Column="1" Content="8" Click="BT_Click" />
         <Button Grid.Row="3" Grid.Column="2" Content="9" Click="BT_Click" />
-        <Button Grid.Row="3" Grid.Column="3" Content="X" Click="BT_Click" />
+        <Button Grid.Row="3" Grid.Column="3" Content="×" Click="BT_Click" />
 
         <Button Grid.Row="4" Grid.Column="0" Content="4" Click="BT_Click" />
         <Button Grid.Row="4" Grid.Column="1" Content="5" Click="BT_Click" />
