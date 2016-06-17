@@ -5,3 +5,21 @@ c:\documents and settings\lumiru\mes documents\visual studio 2010\Projects\Stupi
 c:\documents and settings\lumiru\mes documents\visual studio 2010\Projects\StupidCalculatorLib\TestLib\obj\Debug\ResolveAssemblyReference.cache
 c:\documents and settings\lumiru\mes documents\visual studio 2010\Projects\StupidCalculatorLib\TestLib\obj\Debug\TestLib.dll
 c:\documents and settings\lumiru\mes documents\visual studio 2010\Projects\StupidCalculatorLib\TestLib\obj\Debug\TestLib.pdb
+<<<<<<< HEAD
+=======
+C:\Users\Kevin\Documents\stupid-calculator\StupidCalculatorLib\TestLib\bin\Debug\TestLib.dll
+C:\Users\Kevin\Documents\stupid-calculator\StupidCalculatorLib\TestLib\bin\Debug\TestLib.pdb
+C:\Users\Kevin\Documents\stupid-calculator\StupidCalculatorLib\TestLib\bin\Debug\StupidCalculatorLib.dll
+C:\Users\Kevin\Documents\stupid-calculator\StupidCalculatorLib\TestLib\bin\Debug\StupidCalculatorLib.pdb
+C:\Users\Kevin\Documents\stupid-calculator\StupidCalculatorLib\TestLib\obj\Debug\TestLib.csprojResolveAssemblyReference.cache
+C:\Users\Kevin\Documents\stupid-calculator\StupidCalculatorLib\TestLib\obj\Debug\TestLib.dll
+C:\Users\Kevin\Documents\stupid-calculator\StupidCalculatorLib\TestLib\obj\Debug\TestLib.pdb
+E:\Documents\Visual Studio 2015\Projects\Calculator\stupid-calculator\StupidCalculatorLib\TestLib\bin\Debug\TestLib.dll
+E:\Documents\Visual Studio 2015\Projects\Calculator\stupid-calculator\StupidCalculatorLib\TestLib\bin\Debug\TestLib.pdb
+E:\Documents\Visual Studio 2015\Projects\Calculator\stupid-calculator\StupidCalculatorLib\TestLib\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+E:\Documents\Visual Studio 2015\Projects\Calculator\stupid-calculator\StupidCalculatorLib\TestLib\bin\Debug\StupidCalculatorLib.dll
+E:\Documents\Visual Studio 2015\Projects\Calculator\stupid-calculator\StupidCalculatorLib\TestLib\bin\Debug\StupidCalculatorLib.pdb
+E:\Documents\Visual Studio 2015\Projects\Calculator\stupid-calculator\StupidCalculatorLib\TestLib\obj\Debug\TestLib.csprojResolveAssemblyReference.cache
+E:\Documents\Visual Studio 2015\Projects\Calculator\stupid-calculator\StupidCalculatorLib\TestLib\obj\Debug\TestLib.dll
+E:\Documents\Visual Studio 2015\Projects\Calculator\stupid-calculator\StupidCalculatorLib\TestLib\obj\Debug\TestLib.pdb
+>>>>>>> origin/develop/window
