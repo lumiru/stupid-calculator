@@ -26,7 +26,7 @@ namespace Calculator
         /// <param name="e"></param>
         private void BT_Click(object sender, RoutedEventArgs e)
         {
-            Run(((Button)sender).Content.ToString());
+            Run(((Button)sender).Tag.ToString());
         }
 
         /// <summary>
