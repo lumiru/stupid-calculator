@@ -52,14 +52,20 @@ namespace Calculator
 
         private void Run(string str)
         {
-
-            if (str.Length == 1)
+            if (TXT_CALCUL.Text.Length < 16)
+            {
+                if (str.Length == 1)
+                {
+                    TXT_CALCUL.Text = _binder.pushButton(str[0]);
+                }
+                else if (str == "CE" || str == "EFF")
+                {
+                    TXT_CALCUL.Text = _binder.pushButton('E');
+                }
+            }
+            else if(str == "=")
             {
                 TXT_CALCUL.Text = _binder.pushButton(str[0]);
-            }
-            else if (str == "CE" || str == "EFF")
-            {
-                TXT_CALCUL.Text = _binder.pushButton('E');
             }
         }
 

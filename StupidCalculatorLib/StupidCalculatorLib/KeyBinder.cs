@@ -125,6 +125,11 @@ namespace StupidCalculatorLib
                 _buffer += "0";
                 _text += "0";
             }
+            else if (_buffer == "0" && char.IsDigit(n))
+            {
+                _buffer = "";
+                _text = _text.Substring(0, _text.Length - 1);
+            }
 
             _buffer += n;
             _text += n;
@@ -141,6 +146,11 @@ namespace StupidCalculatorLib
             {
                 _op.addNumber(double.Parse(_buffer));
             }
+            else
+            {
+                _op.addNumber(0);
+            }
+
             _text = _op.compute().ToString();
             _isResult = true;
             _hasSign = false;
