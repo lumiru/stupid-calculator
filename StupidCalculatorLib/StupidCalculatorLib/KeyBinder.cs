@@ -7,6 +7,13 @@ namespace StupidCalculatorLib
 {
     public class KeyBinder
     {
+        private bool _isResult;
+
+        public bool isResult
+        {
+            get { return _isResult; }
+        }
+
         private string _text;
 
         public string text
@@ -23,6 +30,7 @@ namespace StupidCalculatorLib
         {
             _op = new Operator();
             _buffer = "";
+            _isResult = false;
         }
 
         public string pushButton(char c)
@@ -66,7 +74,7 @@ namespace StupidCalculatorLib
             return _text;
         }
 
-        public void putOperation(Operation op)
+        private void putOperation(Operation op)
         {
             _op.operation = op;
             _op.addNumber(double.Parse(_buffer));
@@ -74,18 +82,35 @@ namespace StupidCalculatorLib
             _text += " " + op2char(op) + " ";
         }
 
-        public void putNumber(char n)
+        private void putNumber(char n)
         {
+            if ((_isResult || _buffer.Length == 0) && (n == ',' || n == '.'))
+            {
+                if (_isResult)
+                {
+                    _buffer = "";
+                    _text = "";
+                }
+
+                _buffer += "0";
+                _text += "0";
+            }
+
             _buffer += n;
+            _text += n;
+
+            _isResult = false;
         }
 
-        public void compute()
+        private void compute()
         {
+            _op.addNumber(double.Parse(_buffer));
             _buffer = _op.compute().ToString();
             _text = _buffer;
+            _isResult = true;
         }
 
-        private static char op2char(Operation op)
+        public static char op2char(Operation op)
         {
             char c = '\0';
 

@@ -11,9 +11,9 @@ namespace TestLib
     /// Description résumée pour UnitTest1
     /// </summary>
     [TestClass]
-    public class UnitTest1
+    public class OperatorTest
     {
-        public UnitTest1()
+        public OperatorTest()
         {
             //
             // TODO: ajoutez ici la logique du constructeur
