@@ -63,10 +63,25 @@ namespace Calculator
                     TXT_CALCUL.Text = _binder.pushButton('E');
                 }
             }
-            else if(str == "=" || str[0] == 'C' || str[0] == 'E')
+            else 
             {
-                TXT_CALCUL.Text = _binder.pushButton(str[0]);
+                switch (str[0])
+                {
+                    case '+':
+                    case '-':
+                    case 'x':
+                    case 'X':
+                    case '×':
+                    case '/':
+                    case '÷':
+                    case '=':
+                    case 'C':
+                    case 'E':
+                        TXT_CALCUL.Text = _binder.pushButton(str[0]);
+                        break;
+                }
             }
+
         }
 
         private string GetKeyChar(Key key)
