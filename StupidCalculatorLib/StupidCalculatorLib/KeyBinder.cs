@@ -103,12 +103,15 @@ namespace StupidCalculatorLib
 
         private void putOperation(Operation op)
         {
+            // If an compute is shown
             if (_hasSign && _text.Length > 2)
             {
+                // If there is no digit after the sign, we can replace it
                 if (_text[_text.Length - 1] == ' ')
                 {
                     _text = _text.Substring(0, _text.Length - 3);
                 }
+                // Else, the compute is run
                 else
                 {
                     compute();
@@ -116,6 +119,7 @@ namespace StupidCalculatorLib
             }
 
             _op.operation = op;
+            // If their is a number shown, save it
             if (_buffer.Length > 0)
             {
                 if (!isResult)
@@ -127,8 +131,8 @@ namespace StupidCalculatorLib
             }
             _text += " " + op2char(op) + " ";
 
-            _hasSign = true;
-            _isResult = false;
+            _hasSign = true; // There is a sign in the shown text
+            _isResult = false; // The shown text is not a result anymore
         }
 
         private void putNumber(char n)
