@@ -2,7 +2,6 @@
 using System.Windows.Controls;
 using StupidCalculatorLib;
 using System.Windows.Input;
-using System.Runtime.InteropServices;
 
 namespace Calculator
 {
@@ -19,7 +18,7 @@ namespace Calculator
             this._binder = new KeyBinder();
             this.PreviewKeyDown += TXT_CALCUL_PreviewKeyDown;
         }
-        
+
         /// <summary>
         /// Button click events
         /// </summary>
@@ -38,7 +37,7 @@ namespace Calculator
         private void TXT_CALCUL_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             string temp = GetKeyChar(e.Key);
-            
+
             e.Handled = true;
             if (TXT_CALCUL.Text.Length > 0)
             {
@@ -53,6 +52,7 @@ namespace Calculator
 
         private void Run(string str)
         {
+
             if (str.Length == 1)
             {
                 TXT_CALCUL.Text = _binder.pushButton(str[0]);
@@ -88,6 +88,8 @@ namespace Calculator
                     return "=";
                 case Key.Delete:
                     return "C";
+                case Key.Back:
+                    return "EFF";
                 default:
                     return null;
             }
