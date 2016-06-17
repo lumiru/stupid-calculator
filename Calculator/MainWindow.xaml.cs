@@ -16,6 +16,7 @@ namespace Calculator
         public MainWindow()
         {
             InitializeComponent();
+            this._binder = new KeyBinder();
             this.PreviewKeyDown += TXT_CALCUL_PreviewKeyDown;
         }
         
