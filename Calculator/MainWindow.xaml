@@ -23,7 +23,8 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <TextBox x:Name="TXT_CALCUL" Grid.RowSpan="2" Grid.ColumnSpan="4" HorizontalContentAlignment="Right" FontSize="32" IsReadOnly="True" Style="{StaticResource MetroTextBox}" />
+        <TextBox x:Name="TXT_CALCUL" Grid.RowSpan="2" Grid.ColumnSpan="4" HorizontalContentAlignment="Right" FontSize="32" IsReadOnly="True" Style="{StaticResource MetroTextBox}"
+                 KeyDown="TXT_CALCUL_KeyDown" />
 
         <Button Grid.Row="2" Grid.Column="0" Content="CE" Click="BT_Click" />
         <Button Grid.Row="2" Grid.Column="1" Content="C" Click="BT_Click" />

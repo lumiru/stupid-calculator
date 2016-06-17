@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using StupidCalculatorLib;
+using System.Windows.Input;
 
 namespace Calculator
 {
@@ -11,7 +12,7 @@ namespace Calculator
     {
         public static bool Erase;
         public static Operator Operator;
-        public static Operation lastOperator;
+        public static Operation lastOperation;
 
         public MainWindow()
         {
@@ -26,19 +27,30 @@ namespace Calculator
         /// <param name="e"></param>
         private void BT_Click(object sender, RoutedEventArgs e)
         {
+            Run(((Button)sender).Content.ToString());
+        }
+
+        /// <summary>
+        /// KeyDown event on TXT_CALCUL
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TXT_CALCUL_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (IsAllowedChar(e.Key))
+            {
+                //Run();
+            }
+        }
+
+        private void Run(string str)
+        {
             if (Operator == null)
             {
                 Operator = new Operator();
             }
 
-            // if erase = true, save current value and clear textbox
-            if (Erase)
-            {
-                TXT_CALCUL.Text = "";
-                Erase = false;
-            }
-
-            switch (((Button)sender).Content.ToString())
+            switch (str)
             {
                 case "CE":
                     TXT_CALCUL.Text = "";
@@ -57,10 +69,22 @@ namespace Calculator
                 case "7":
                 case "8":
                 case "9":
+                    // if erase = true, save current value and clear textbox
+                    if (Erase)
+                    {
+                        TXT_CALCUL.Text = "";
+                        Erase = false;
+                    }
                     // add number to textbox
-                    TXT_CALCUL.Text += ((Button)sender).Content.ToString();
+                    TXT_CALCUL.Text += str;
                     break;
                 case ",":
+                    // if erase = true, save current value and clear textbox
+                    if (Erase)
+                    {
+                        TXT_CALCUL.Text = "";
+                        Erase = false;
+                    }
                     // if textbox not already contains decimal, and minimum one number exist
                     if (TXT_CALCUL.Text == "")
                     {
@@ -68,42 +92,53 @@ namespace Calculator
                     }
                     if (!TXT_CALCUL.Text.Contains(","))
                     {
-                        TXT_CALCUL.Text += ((Button)sender).Content.ToString();
+                        TXT_CALCUL.Text += str;
                     }
                     break;
 
                 case "X":
                     Operator.operation = Operation.MULTIPLY;
                     Operator.addNumber(double.Parse(TXT_CALCUL.Text));
-                    TXT_CALCUL.Text += ((Button)sender).Content.ToString();
+                    TXT_CALCUL.Text += str;
                     Erase = true;
                     break;
                 case "-":
                     Operator.operation = Operation.SUBSTRACT;
                     Operator.addNumber(double.Parse(TXT_CALCUL.Text));
-                    TXT_CALCUL.Text += ((Button)sender).Content.ToString();
+                    TXT_CALCUL.Text += str;
                     Erase = true;
                     break;
                 case "+":
                     Operator.operation = Operation.ADD;
                     Operator.addNumber(double.Parse(TXT_CALCUL.Text));
-                    TXT_CALCUL.Text += ((Button)sender).Content.ToString();
+                    TXT_CALCUL.Text += str;
                     Erase = true;
                     break;
                 case "/":
                     Operator.operation = Operation.DIVIDE;
                     Operator.addNumber(double.Parse(TXT_CALCUL.Text));
-                    TXT_CALCUL.Text += ((Button)sender).Content.ToString();
+                    TXT_CALCUL.Text += str;
                     Erase = true;
                     break;
                 case "=":
                     Operator.addNumber(double.Parse(TXT_CALCUL.Text));
                     TXT_CALCUL.Text = Operator.compute().ToString();
+                    Erase = true;
                     break;
 
                 default:
                     break;
             }
+        }
+
+        private bool IsAllowedChar(Key key)
+        {
+            if (key.ToString().Contains("NumPad"))
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }
