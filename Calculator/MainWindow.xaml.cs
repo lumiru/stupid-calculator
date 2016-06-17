@@ -2,7 +2,6 @@
 using System.Windows.Controls;
 using StupidCalculatorLib;
 using System.Windows.Input;
-using System.Runtime.InteropServices;
 
 namespace Calculator
 {
@@ -21,7 +20,7 @@ namespace Calculator
 
             this.PreviewKeyDown += TXT_CALCUL_PreviewKeyDown;
         }
-        
+
         /// <summary>
         /// Button click events
         /// </summary>
@@ -40,7 +39,7 @@ namespace Calculator
         private void TXT_CALCUL_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             string temp = GetKeyChar(e.Key);
-            
+
             e.Handled = true;
             if (TXT_CALCUL.Text.Length > 0)
             {
@@ -55,118 +54,132 @@ namespace Calculator
 
         private void Run(string str)
         {
-            if (Operator == null)
+            if (str == "EFF" && TXT_CALCUL.Text != "")
             {
-                Operator = new Operator();
+                if (!char.IsNumber(TXT_CALCUL.Text[TXT_CALCUL.Text.Length - 1]))
+                {
+                    Operator.operation = Operation.NONE;
+                    Erase = false;
+                }
+                TXT_CALCUL.Text = TXT_CALCUL.Text.Substring(0, TXT_CALCUL.Text.Length - 1);
             }
 
-            // if erase = true, save current value and clear textbox
-            if (Erase)
+            if (TXT_CALCUL.Text.Length < 16)
             {
+                if (Operator == null)
+                {
+                    Operator = new Operator();
+                }
+
+                // if erase = true, save current value and clear textbox
+                if (Erase)
+                {
+                    switch (str)
+                    {
+                        case "+":
+                        case "-":
+                        case "/":
+                        case "X":
+                        case "=":
+                            if (!char.IsNumber(TXT_CALCUL.Text[TXT_CALCUL.Text.Length - 1]))
+                            {
+                                TXT_CALCUL.Text = TXT_CALCUL.Text.Substring(0, TXT_CALCUL.Text.Length - 1);
+                            }
+                            break;
+                        default:
+                            TXT_CALCUL.Text = "";
+                            Erase = false;
+                            break;
+                    }
+                }
+
                 switch (str)
                 {
-                    case "+":
-                    case "-":
-                    case "/":
-                    case "X":
-                    case "=":
-                        if (!char.IsNumber(TXT_CALCUL.Text[TXT_CALCUL.Text.Length - 1]))
+                    case "CE":
+                        TXT_CALCUL.Text = "";
+                        break;
+                    case "C":
+                        TXT_CALCUL.Text = "";
+                        break;
+
+                    case "0":
+                    case "1":
+                    case "2":
+                    case "3":
+                    case "4":
+                    case "5":
+                    case "6":
+                    case "7":
+                    case "8":
+                    case "9":
+                        if (str == "0" && TXT_CALCUL.Text != "" && TXT_CALCUL.Text[TXT_CALCUL.Text.Length - 1] == '0')
                         {
-                            TXT_CALCUL.Text = TXT_CALCUL.Text.Substring(0, TXT_CALCUL.Text.Length - 1);
+                            break;
+                        }
+                        // add number to textbox
+                        TXT_CALCUL.Text += str;
+                        break;
+                    case ",":
+                        // if textbox not already contains decimal, and minimum one number exist
+                        if (TXT_CALCUL.Text == "")
+                        {
+                            TXT_CALCUL.Text = "0";
+                        }
+                        if (!TXT_CALCUL.Text.Contains(","))
+                        {
+                            TXT_CALCUL.Text += str;
                         }
                         break;
+
+                    case "X":
+                        if (Operator != null && TXT_CALCUL.Text != "")
+                        {
+                            Operator.operation = Operation.MULTIPLY;
+                            Operator.addNumber(double.Parse(TXT_CALCUL.Text));
+                            TXT_CALCUL.Text += str;
+                            Erase = true;
+                        }
+                        break;
+                    case "-":
+                        if (Operator != null && TXT_CALCUL.Text != "")
+                        {
+                            Operator.operation = Operation.SUBSTRACT;
+                            Operator.addNumber(double.Parse(TXT_CALCUL.Text));
+                            TXT_CALCUL.Text += str;
+                            Erase = true;
+                        }
+                        break;
+                    case "+":
+                        if (Operator != null && TXT_CALCUL.Text != "")
+                        {
+                            Operator.operation = Operation.ADD;
+                            Operator.addNumber(double.Parse(TXT_CALCUL.Text));
+                            TXT_CALCUL.Text += str;
+                            Erase = true;
+                        }
+                        break;
+                    case "/":
+                        if (Operator != null && TXT_CALCUL.Text != "")
+                        {
+                            Operator.operation = Operation.DIVIDE;
+                            Operator.addNumber(double.Parse(TXT_CALCUL.Text));
+                            TXT_CALCUL.Text += str;
+                            Erase = true;
+                        }
+                        break;
+                    case "=":
+                        if (Operator != null && TXT_CALCUL.Text != "")
+                        {
+                            Operator.addNumber(double.Parse(TXT_CALCUL.Text));
+                            TXT_CALCUL.Text = Operator.compute().ToString();
+                            Erase = true;
+                        }
+                        break;
+
                     default:
-                        TXT_CALCUL.Text = "";
-                        Erase = false;
                         break;
                 }
-            }
 
-            switch (str)
-            {
-                case "CE":
-                    TXT_CALCUL.Text = "";
-                    break;
-                case "C":
-                    TXT_CALCUL.Text = "";
-                    break;
-
-                case "0":
-                case "1":
-                case "2":
-                case "3":
-                case "4":
-                case "5":
-                case "6":
-                case "7":
-                case "8":
-                case "9":
-                    if (str == "0" && TXT_CALCUL.Text != "" && TXT_CALCUL.Text[TXT_CALCUL.Text.Length - 1] == '0')
-                    {
-                        break;
-                    }
-                    // add number to textbox
-                    TXT_CALCUL.Text += str;
-                    break;
-                case ",":
-                    // if textbox not already contains decimal, and minimum one number exist
-                    if (TXT_CALCUL.Text == "")
-                    {
-                        TXT_CALCUL.Text = "0";
-                    }
-                    if (!TXT_CALCUL.Text.Contains(","))
-                    {
-                        TXT_CALCUL.Text += str;
-                    }
-                    break;
-
-                case "X":
-                    if (Operator != null && TXT_CALCUL.Text != "")
-                    {
-                        Operator.operation = Operation.MULTIPLY;
-                        Operator.addNumber(double.Parse(TXT_CALCUL.Text));
-                        TXT_CALCUL.Text += str;
-                        Erase = true;
-                    }
-                    break;
-                case "-":
-                    if (Operator != null && TXT_CALCUL.Text != "")
-                    {
-                        Operator.operation = Operation.SUBSTRACT;
-                        Operator.addNumber(double.Parse(TXT_CALCUL.Text));
-                        TXT_CALCUL.Text += str;
-                        Erase = true;
-                    }
-                    break;
-                case "+":
-                    if (Operator != null && TXT_CALCUL.Text != "")
-                    {
-                        Operator.operation = Operation.ADD;
-                        Operator.addNumber(double.Parse(TXT_CALCUL.Text));
-                        TXT_CALCUL.Text += str;
-                        Erase = true;
-                    }
-                    break;
-                case "/":
-                    if (Operator != null && TXT_CALCUL.Text != "")
-                    {
-                        Operator.operation = Operation.DIVIDE;
-                        Operator.addNumber(double.Parse(TXT_CALCUL.Text));
-                        TXT_CALCUL.Text += str;
-                        Erase = true;
-                    }
-                    break;
-                case "=":
-                    if (Operator != null && TXT_CALCUL.Text != "")
-                    {
-                        Operator.addNumber(double.Parse(TXT_CALCUL.Text));
-                        TXT_CALCUL.Text = Operator.compute().ToString();
-                        Erase = true;
-                    }
-                    break;
-
-                default:
-                    break;
             }
         }
 
@@ -199,6 +212,8 @@ namespace Calculator
                     return "=";
                 case Key.Delete:
                     return "C";
+                case Key.Back:
+                    return "EFF";
                 default:
                     return null;
             }

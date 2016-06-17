@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
-        mc:Ignorable="d" Title="Calculator" Height="350" Width="300" ResizeMode="NoResize">
+        mc:Ignorable="d" Title="Calculator" Height="350" Width="320" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -28,6 +28,7 @@
 
         <Button Grid.Row="2" Grid.Column="0" Content="CE" Click="BT_Click" />
         <Button Grid.Row="2" Grid.Column="1" Content="C" Click="BT_Click" />
+        <Button Grid.Row="2" Grid.Column="2" Content="EFF" Click="BT_Click" />
         <Button Grid.Row="2" Grid.Column="3" Content="/" Click="BT_Click" />
 
         <Button Grid.Row="3" Grid.Column="0" Content="7" Click="BT_Click" />
