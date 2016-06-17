@@ -86,7 +86,7 @@ namespace TestLib
             Assert.AreEqual("25 × 5", binder.pushButton('5'));
             Assert.AreEqual("125", binder.pushButton('='));
             binder.pushButton('-');
-            binder.pushButton('5');
+            Assert.AreEqual("125 - 5", binder.pushButton('5'));
             Assert.AreEqual("120", binder.pushButton('='));
             binder.pushButton('/');
             binder.pushButton('1');
@@ -109,6 +109,37 @@ namespace TestLib
             binder.pushButton(',');
             binder.pushButton('5');
             Assert.AreEqual("0,5", binder.pushButton('='));
+        }
+
+        [TestMethod()]
+        public void multiOpTest()
+        {
+            KeyBinder binder = new KeyBinder();
+            binder.pushButton('1');
+            binder.pushButton('+');
+            binder.pushButton('x');
+            binder.pushButton('2');
+            Assert.AreEqual("2", binder.pushButton('='));
+        }
+
+        [TestMethod()]
+        public void idiotTest()
+        {
+            KeyBinder binder = new KeyBinder();
+            binder.pushButton('+');
+            binder.pushButton('x');
+            Assert.AreEqual("0", binder.pushButton('='));
+        }
+
+        [TestMethod()]
+        public void recurrentTest()
+        {
+            KeyBinder binder = new KeyBinder();
+            binder.pushButton('3');
+            binder.pushButton('+');
+            binder.pushButton('3');
+            Assert.AreEqual("6", binder.pushButton('='));
+            Assert.AreEqual("9", binder.pushButton('='));
         }
     }
 }

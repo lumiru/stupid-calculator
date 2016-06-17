@@ -77,9 +77,17 @@ namespace StupidCalculatorLib
         private void putOperation(Operation op)
         {
             _op.operation = op;
-            _op.addNumber(double.Parse(_buffer));
-            _buffer = "";
+            if (_buffer.Length > 0)
+            {
+                if (!isResult)
+                {
+                    _op.addNumber(double.Parse(_buffer));
+                }
+                _buffer = "";
+            }
             _text += " " + op2char(op) + " ";
+
+            _isResult = false;
         }
 
         private void putNumber(char n)
@@ -99,14 +107,19 @@ namespace StupidCalculatorLib
             _buffer += n;
             _text += n;
 
-            _isResult = false;
+            if(_isResult) {
+                _op.operation = Operation.NONE;
+                _isResult = false;
+            }
         }
 
         private void compute()
         {
-            _op.addNumber(double.Parse(_buffer));
-            _buffer = _op.compute().ToString();
-            _text = _buffer;
+            if (_buffer.Length > 0)
+            {
+                _op.addNumber(double.Parse(_buffer));
+            }
+            _text = _op.compute().ToString();
             _isResult = true;
         }
 
