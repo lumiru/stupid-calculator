@@ -93,7 +93,7 @@ namespace Calculator
                 case Key.Decimal:
                     return ",";
                 case Key.Divide:
-                    return "/";
+                    return "÷";
                 case Key.Enter:
                     return "=";
                 case Key.Delete:
