@@ -52,6 +52,8 @@ namespace Calculator
 
         private void Run(string str)
         {
+            TXT_CALCUL.ScrollToHorizontalOffset(10000000);
+
             if (_binder.buffer.Length < 16)
             {
                 if (str.Length == 1)
