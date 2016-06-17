@@ -111,5 +111,24 @@ namespace TestLib
             op.addNumber(10);
             Assert.AreEqual(101, op.compute());
         }
+
+        [TestMethod]
+        public void TestMultiOp()
+        {
+            Operator op = new Operator();
+            op.addNumber(1010);
+            op.operation = Operation.MULTIPLY;
+            op.addNumber(4);
+            Assert.AreEqual(4040, op.compute());
+            op.operation = Operation.DIVIDE;
+            op.addNumber(10);
+            Assert.AreEqual(404, op.compute());
+            op.operation = Operation.ADD;
+            op.addNumber(55);
+            Assert.AreEqual(459, op.compute());
+            op.operation = Operation.SUBSTRACT;
+            op.addNumber(9);
+            Assert.AreEqual(450, op.compute());
+        }
     }
 }
