@@ -52,7 +52,7 @@ namespace Calculator
 
         private void Run(string str)
         {
-            if (_binder.text.Length < 16)
+            if (_binder.buffer.Length < 16)
             {
                 if (str.Length == 1)
                 {

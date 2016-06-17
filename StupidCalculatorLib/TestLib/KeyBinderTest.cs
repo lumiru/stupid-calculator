@@ -242,5 +242,16 @@ namespace TestLib
             Assert.AreEqual("10", binder.pushButton('0'));
             Assert.AreEqual("100", binder.pushButton('0'));
         }
+
+        [TestMethod()]
+        public void kevin2Test()
+        {
+            KeyBinder binder = new KeyBinder();
+            binder.pushButton('1');
+            binder.pushButton('2');
+            binder.pushButton('+');
+            Assert.AreEqual("12", binder.pushButton('='));
+            Assert.AreEqual("1", binder.pushButton('1'));
+        }
     }
 }
