@@ -20,10 +20,14 @@ namespace StupidCalculatorLib
         public string text
         {
             get { return _text; }
-            set { _text = value; }
         }
 
         private string _buffer;
+
+        public string buffer
+        {
+            get { return _buffer; }
+        }
 
         private Operator _op;
 
@@ -114,7 +118,11 @@ namespace StupidCalculatorLib
 
         private void putNumber(char n)
         {
-            if ((_isResult || _buffer.Length == 0) && (n == ',' || n == '.'))
+            if (n == '.')
+            {
+                n = ',';
+            }
+            if ((_isResult || _buffer.Length == 0) && n == ',')
             {
                 if (_isResult)
                 {
@@ -125,31 +133,31 @@ namespace StupidCalculatorLib
                 _buffer += "0";
                 _text += "0";
             }
-            else if (_buffer == "0" && char.IsDigit(n))
+            else if (_buffer == "0" && char.IsNumber(n))
             {
                 _buffer = "";
                 _text = _text.Substring(0, _text.Length - 1);
             }
 
-            _buffer += n;
-            _text += n;
+            if (n != ',' || _buffer.IndexOf(',') < 0)
+            {
+                _buffer += n;
+                _text += n;
 
-            if(_isResult) {
-                _op.operation = Operation.NONE;
-                _isResult = false;
+                if(_isResult) {
+                    _op.operation = Operation.NONE;
+                    _isResult = false;
+                }
             }
         }
 
         private void compute()
         {
-            if (_buffer.Length > 0)
+            if (_buffer.Length <= 0)
             {
-                _op.addNumber(double.Parse(_buffer));
+                _buffer = "0";
             }
-            else
-            {
-                _op.addNumber(0);
-            }
+            _op.addNumber(double.Parse(_buffer));
 
             _text = _op.compute().ToString();
             _isResult = true;
@@ -167,6 +175,13 @@ namespace StupidCalculatorLib
         {
             if (_buffer.Length > 0)
             {
+                if (_isResult)
+                {
+                    _op.operation = Operation.NONE;
+                    _buffer = _text;
+                    _isResult = false;
+                }
+
                 _text = _text.Substring(0, _text.Length - 1);
                 _buffer = _buffer.Substring(0, _buffer.Length - 1);
             }

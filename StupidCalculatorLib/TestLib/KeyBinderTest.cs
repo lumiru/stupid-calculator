@@ -196,17 +196,17 @@ namespace TestLib
             Assert.AreEqual("0", binder.pushButton('='));
         }
 
-        //[TestMethod()]
-        //public void kevinPopTest()
-        //{
-        //    KeyBinder binder = new KeyBinder();
-        //    binder.pushButton('1');
-        //    binder.pushButton('+');
-        //    Assert.AreEqual("1 + 1", binder.pushButton('1'));
-        //    Assert.AreEqual("2", binder.pushButton('='));
-        //    Assert.AreEqual("", binder.pushButton('E'));
-        //    Assert.AreEqual("0", binder.pushButton('='));
-        //}
+        [TestMethod()]
+        public void kevinPopTest()
+        {
+            KeyBinder binder = new KeyBinder();
+            binder.pushButton('1');
+            binder.pushButton('+');
+            Assert.AreEqual("1 + 1", binder.pushButton('1'));
+            Assert.AreEqual("2", binder.pushButton('='));
+            Assert.AreEqual("", binder.pushButton('E'));
+            Assert.AreEqual("0", binder.pushButton('='));
+        }
 
         [TestMethod()]
         public void zeroTest()
@@ -214,6 +214,33 @@ namespace TestLib
             KeyBinder binder = new KeyBinder();
             binder.pushButton('0');
             Assert.AreEqual("0", binder.pushButton('0'));
+            Assert.AreEqual("1", binder.pushButton('1'));
+        }
+
+        [TestMethod()]
+        public void commaTest()
+        {
+            KeyBinder binder = new KeyBinder();
+            Assert.AreEqual("0,", binder.pushButton(','));
+            Assert.AreEqual("0,", binder.pushButton(','));
+            Assert.AreEqual("0,1", binder.pushButton('1'));
+            Assert.AreEqual("0,1", binder.pushButton(','));
+        }
+
+        [TestMethod()]
+        public void kevinTest()
+        {
+            KeyBinder binder = new KeyBinder();
+            binder.pushButton('1');
+            binder.pushButton('0');
+            binder.pushButton('x');
+            binder.pushButton('1');
+            binder.pushButton('0');
+            Assert.AreEqual("100", binder.pushButton('='));
+            Assert.AreEqual("10", binder.pushButton('E'));
+            Assert.AreEqual("1", binder.pushButton('E'));
+            Assert.AreEqual("10", binder.pushButton('0'));
+            Assert.AreEqual("100", binder.pushButton('0'));
         }
     }
 }

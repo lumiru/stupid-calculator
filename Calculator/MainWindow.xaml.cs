@@ -52,7 +52,7 @@ namespace Calculator
 
         private void Run(string str)
         {
-            if (TXT_CALCUL.Text.Length < 16)
+            if (_binder.text.Length < 16)
             {
                 if (str.Length == 1)
                 {
@@ -63,7 +63,7 @@ namespace Calculator
                     TXT_CALCUL.Text = _binder.pushButton('E');
                 }
             }
-            else if(str == "=" || str == "C" || str == "E")
+            else if(str == "=" || str[0] == 'C' || str[0] == 'E')
             {
                 TXT_CALCUL.Text = _binder.pushButton(str[0]);
             }
