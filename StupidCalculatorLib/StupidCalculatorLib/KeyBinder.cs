@@ -5,6 +5,9 @@
         private bool _isResult;
         private bool _hasSign;
 
+        /// <summary>
+        /// True if text value is a compute result
+        /// </summary>
         public bool isResult
         {
             get { return _isResult; }
@@ -12,6 +15,9 @@
 
         private string _text;
 
+        /// <summary>
+        /// Current showed text
+        /// </summary>
         public string text
         {
             get { return _text; }
@@ -19,6 +25,9 @@
 
         private string _buffer;
 
+        /// <summary>
+        /// Buffer to prepare next compute
+        /// </summary>
         public string buffer
         {
             get { return _buffer; }
@@ -29,11 +38,17 @@
         public KeyBinder()
         {
             _op = new Operator();
+            _text = "";
             _buffer = "";
             _isResult = false;
             _hasSign = false;
         }
 
+        /// <summary>
+        /// To call each time a button is pushed
+        /// </summary>
+        /// <param name="c">The pushed button</param>
+        /// <returns>The value to show</returns>
         public string pushButton(char c)
         {
             Operation op = Operation.NONE;
@@ -113,27 +128,31 @@
 
         private void putNumber(char n)
         {
+            // Dots in numbers are commas in French
             if (n == '.')
             {
                 n = ',';
             }
-            if ((_isResult || _buffer.Length == 0) && n == ',')
+            // No need to edit a result so we reset it
+            if (_isResult)
             {
-                if (_isResult)
-                {
-                    _buffer = "";
-                    _text = "";
-                }
-
+                _buffer = "";
+                _text = "";
+            }
+            // If comma is placed at first, we add a zero
+            if (_buffer.Length == 0 && n == ',')
+            {
                 _buffer += "0";
                 _text += "0";
             }
+            // Replace first zero if possible
             else if (_buffer == "0" && char.IsNumber(n))
             {
                 _buffer = "";
                 _text = _text.Substring(0, _text.Length - 1);
             }
 
+            // Nothing to do if there is already one
             if (n != ',' || _buffer.IndexOf(',') < 0)
             {
                 _buffer += n;
@@ -182,6 +201,11 @@
             }
         }
 
+        /// <summary>
+        /// Translate Operation constante to its char value
+        /// </summary>
+        /// <param name="op">The Operation constant value</param>
+        /// <returns>Operation sign</returns>
         public static char op2char(Operation op)
         {
             char c = '\0';
