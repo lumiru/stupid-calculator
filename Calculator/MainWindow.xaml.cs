@@ -26,7 +26,7 @@ namespace Calculator
         /// <param name="e"></param>
         private void BT_Click(object sender, RoutedEventArgs e)
         {
-            Run(((Button)sender).Content.ToString());
+            Run(((Button)sender).Tag.ToString());
         }
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace Calculator
                 case Key.NumPad9:
                     return key.ToString().Substring(6);
                 case Key.Multiply:
-                    return "X";
+                    return "×";
                 case Key.Add:
                     return "+";
                 case Key.Subtract:
