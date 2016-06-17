@@ -29,7 +29,7 @@
         <Button Grid.Row="2" Grid.Column="0" Content="CE" Click="BT_Click" />
         <Button Grid.Row="2" Grid.Column="1" Content="C" Click="BT_Click" />
         <Button Grid.Row="2" Grid.Column="2" Content="EFF" Click="BT_Click" />
-        <Button Grid.Row="2" Grid.Column="3" Content="/" Click="BT_Click" />
+        <Button Grid.Row="2" Grid.Column="3" Content="÷" Click="BT_Click" />
 
         <Button Grid.Row="3" Grid.Column="0" Content="7" Click="BT_Click" />
         <Button Grid.Row="3" Grid.Column="1" Content="8" Click="BT_Click" />
